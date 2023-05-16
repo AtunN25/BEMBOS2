@@ -6,11 +6,14 @@
     
 </head>
 <body>
-  <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ-->
+    <script src="productos.js" type="module"></script>          <!--TRAER VARIABLES DE JS-->
+    <script src="eventos.js" type="module"></script>
+    
+  <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ  (ESTA SEPARA LAS SECCIONES DE LA INTERFAZ COMO: PRINCIPAL - MOSTRAR OPCIONES - DOWN LEFT RIGHT)-->
 
-        <div class="right"><!--DERECHA-->
+        <div class="right"><!--SECCION IZQUIERDA DE LA INTERFAZ-->
             
-            <textarea name="description" rows="15" class="form-control"  placeholder="task description"></textarea>
+            <textarea name="description1" rows="15" class="form-control"  placeholder="task description"></textarea>
             <button>Anular producto</button>
             <textarea name="description" rows="8" class="form-control"  placeholder="task description"></textarea>
             <button onclick="redireccionar()">Realizar Pago</button>
@@ -21,12 +24,13 @@
             </script>
         </div>
         
-       <!--division general -> MENU PARA LAS OPCIONES-->
+       <!--division general -> SECCION CENTRAL UBICANDO : OPCIONES Y MOSTRAR OPCIONES (ENTENDER COMO CUADRICULAS)-->
         <div class="general">
             <div class="opciones">
-                <button class="btn-papas hidden">clasica</button>
-                <button class="btn-gaseosa hidden">Chesse</button>
-                <button class="btn-Royal hidden">Royal</button>
+                <button id="clasica" class="boton-clasica hidden">clasica</button>
+               
+                <button class="boton-cheese hidden">Cheese</button>
+                <button class="boton-royal hidden">Royal</button>
             </div>
             <div class="mostraropciones">
                 
@@ -38,14 +42,14 @@
         <!--division general-->
 
 
-        <div class="left"><!--IZQUIERDA-->
+        <div class="left"><!--SECCION DERECHA DE LA INTERFAZ-->
             <button>cancelar pedido</button>
             <button>RUC</button>
             <button>DNI</button>
         </div>
 
         <div class="down"><!--ABAJO-->
-            <button id="comer">Comer Acá</button>
+            <button id="comer">Comer Aca</button>
             <button>Para Llevar</button>
             <button>Generar Pedido</button>
             <input type="text" placeholder="Nombre del Cliente">
@@ -54,6 +58,6 @@
         
   </div>
     <script src="eventos.js"></script>
-    
+    <script src="productos.js"></script>
 </body>
 </html>
