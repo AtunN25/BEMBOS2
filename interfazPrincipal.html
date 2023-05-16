@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BEMBOS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+</head>
+<body>
+  <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ-->
+
+        <div class="right"><!--DERECHA-->
+            
+            <textarea name="description" rows="15" class="form-control"  placeholder="task description"></textarea>
+            <button>Anular producto</button>
+            <textarea name="description" rows="8" class="form-control"  placeholder="task description"></textarea>
+            <button onclick="redireccionar()">Realizar Pago</button>
+            <script>
+                function redireccionar() {
+                  window.location.href = "interfazDePago.html";
+                }
+            </script>
+        </div>
+        
+       <!--division general -> MENU PARA LAS OPCIONES-->
+        <div class="general">
+            <div class="opciones">
+                <button class="btn-papas hidden">clasica</button>
+                <button class="btn-gaseosa hidden">Chesse</button>
+                <button class="btn-Royal hidden">Royal</button>
+            </div>
+            <div class="mostraropciones">
+                
+                <button id="hamburguesas">Hamburguesas</button>
+                <button>Menus</button>
+                <button>Combos</button>
+            </div>
+        </div>
+        <!--division general-->
+
+
+        <div class="left"><!--IZQUIERDA-->
+            <button>cancelar pedido</button>
+            <button>RUC</button>
+            <button>DNI</button>
+        </div>
+
+        <div class="down"><!--ABAJO-->
+            <button id="comer">Comer Acá</button>
+            <button>Para Llevar</button>
+            <button>Generar Pedido</button>
+            <input type="text" placeholder="Nombre del Cliente">
+            <input type="text" placeholder="Pedido Adicional">
+        </div>
+        
+  </div>
+    <script src="eventos.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,80 @@
+.grid{
+    display: grid;
+    /*numero de columnas*/
+    grid-template-columns: 15% 70% 15%;
+    gap:1em;
+    grid-template-rows: 650px 90px ;
+    align-items: stretch;
+}
+/***TODO ESTA DENTRO DEL MENU PRINCIPAL***/
+.general {
+    display: grid;
+    grid-template-rows: 300px 300px;
+    gap:1em;
+    grid-template-columns: 1fr;
+}
+
+.opciones {
+    background-color: blue;
+}
+  
+.mostraropciones {
+    background-color: red;
+}
+/******************/
+
+/******************/
+.down{
+    grid-column: 1/4;
+    grid-row: 0px;
+    background-color: #f1c40f;
+}
+
+.left{
+  background-color: aqua;
+}
+
+.right{
+   background-color: pink;
+}
+/*******************/
+/* Agregamos un estilo de comida rápida a los botones */
+button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* Centramos los botones */
+.right, .left, .down, .mostraropciones {
+  text-align: center;
+}
+
+/* Estilo para los inputs */
+input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    box-shadow: none;
+  }
+  
+  /* Estilo para cuando el input está enfocado */
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #f44336;
+  }
+  /*******************/
+  .hidden {
+    display: none;
+  }
+  
