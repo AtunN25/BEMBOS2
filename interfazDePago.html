@@ -21,18 +21,7 @@
 
             </textarea>
             <button id="titulo">Generar Boleta</button>
-            <script type="module">
-                const hola=document.getElementById("titulo");
-                hola.addEventListener("click",()=>{
-                    /*opciones para generar el comprobante de pago*/
-
-                    // Crea un nuevo objeto jsPDF
-                    var doc = new jsPDF();
-
-                    // Descarga el PDF
-                    doc.save("boleta.pdf");
-                });
-            </script>
+            
             <button onclick="redireccionar()">Regresar</button>
             <script>
                 function redireccionar() {
@@ -70,6 +59,6 @@
   </div>
     <script src="eventos.js"></script>
     <script src="productos.js"></script>
-    
+    <script src="boleta.js"></script>
 </body>
 </html>
