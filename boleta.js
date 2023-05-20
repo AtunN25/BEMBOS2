@@ -1,6 +1,8 @@
-const hola = document.getElementById("titulo");
+import { hamburguesas, menus, complementos, bebidas } from "./productos.js";
 
-hola.addEventListener("click", () => {
+const GenerarBoleta = document.getElementById("Generar-boleta");
+
+GenerarBoleta.addEventListener("click", () => {
   // Crea un nuevo objeto jsPDF
   //var doc = new jsPDF();
   // Define las dimensiones del PDF para una boleta de comida rápida (en milímetros)
@@ -16,7 +18,7 @@ hola.addEventListener("click", () => {
 
   // Agrega el título de la boleta
   doc.setFontSize(18);
-  doc.text("BOMBOS", 60, 10);
+  doc.text("BEMBOS", 60, 10);
   doc.setFontSize(12);
   doc.text("RUC 20392943949", 10, 20);
   doc.text("BOLETA DE VENTA ELECTRÓNICA", 10, 30);
@@ -38,7 +40,7 @@ hola.addEventListener("click", () => {
   doc.text("================================================", 10, 120);
   doc.text("P.GRAVADA                                  9.92", 10, 130);
   doc.text("P.GRAVADA                                   1.79", 10, 140);
-  doc.text("IGV                                        0.19", 10, 150);
+  doc.text("ASDDSA", 10, 150);
   doc.text("IMPORTE TOTAL                            11.90", 10, 160);
   doc.text("================================================", 10, 170);
   doc.text("Son : ONCE CON 90/100 SOLES", 10, 180);
