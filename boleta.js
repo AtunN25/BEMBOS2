@@ -1,5 +1,3 @@
-import { hamburguesas, menus, complementos, bebidas } from "./productos.js";
-
 const GenerarBoleta = document.getElementById("Generar-boleta");
 
 GenerarBoleta.addEventListener("click", () => {

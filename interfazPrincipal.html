@@ -3,12 +3,10 @@
 <head>
 	<title>BEMBOS</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    
-</head>
-<body>
     <script src="productos.js" type="module"></script>          <!--TRAER VARIABLES DE JS-->
     <script src="eventos.js" type="module"></script>
-    
+</head>
+<body>
   <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ  (ESTA SEPARA LAS SECCIONES DE LA INTERFAZ COMO: PRINCIPAL - MOSTRAR OPCIONES - DOWN LEFT RIGHT)-->
 
         <div class="right"><!--SECCION IZQUIERDA DE LA INTERFAZ-->
@@ -16,21 +14,16 @@
             <textarea name="description1" rows="15" class="form-control"  placeholder="task description"></textarea>
             <button>Anular producto</button>
             <textarea name="description2" rows="8" class="form-control"  placeholder="task description"></textarea>
-            <button onclick="redireccionar()">Realizar Pago</button>
-            <script>
-                function redireccionar() {
-                  window.location.href = "interfazDePago.html";
-                }
-            </script>
+            <button id = "Realizar-pago">Realizar Pago</button>
+
         </div>
         
        <!--division general -> SECCION CENTRAL UBICANDO : OPCIONES Y MOSTRAR OPCIONES (ENTENDER COMO CUADRICULAS)-->
         <div class="general">
             <div class="opciones">
-                <button id="clasica" class="boton-clasica hidden">clasica</button>
-               
-                <button class="boton-cheese hidden">Cheese</button>
-                <button class="boton-royal hidden">Royal</button>
+                <button id = "clasica" class="boton-clasica hidden">Clasica</button>
+                <button id = "cheese" class="boton-cheese hidden">Cheese</button>
+                <button id = "royal" class="boton-royal hidden">Royal</button>
             </div>
             <div class="mostraropciones">
                 
@@ -40,7 +33,6 @@
             </div>
         </div>
         <!--division general-->
-
 
         <div class="left"><!--SECCION DERECHA DE LA INTERFAZ-->
             <button>cancelar pedido</button>
@@ -57,7 +49,5 @@
         </div>
         
   </div>
-    <script src="eventos.js"></script>
-    <script src="productos.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 import { hamburguesas, menus, complementos, bebidas } from "./productos.js";
 
 var PrecioFinal =  0.0;
@@ -8,53 +7,76 @@ var PrecioNeto_aux;
 var IGV = 0.0;
 var IGV_aux;
 var texto_pedido = "";
-var texto_precio = ""
+var texto_precio = "";
+var condition = 1;
 
-/* ********************************************* */
-const btnHamburguesas = document.getElementById("hamburguesas");
-btnHamburguesas.addEventListener("click", () => {
-  //RELACIONAR A LOS BOTONES DEL HTML
-  const btnClasica = document.querySelector(".boton-clasica");      
-  const btnCheese = document.querySelector(".boton-cheese");
-  const btnRoyal = document.querySelector(".boton-royal");
-  //HACER APARECER LOS BOTONES
-  btnClasica.classList.toggle("hidden");
-  btnCheese.classList.toggle("hidden");
-  btnRoyal.classList.toggle("hidden")
-});
-/* *********************************************** */
+if(document.querySelector('textarea[name="description-pago1"]')){
+  condition = 2;
+}
 
-// AGARRA EL "TEXTTAREA 1" Y LO GUARDA EN ESTA VARIABLE
-const textareaDescripcion1 = document.querySelector('textarea[name="description1"]');
-const textareaDescripcion2 = document.querySelector('textarea[name="description2"]');
+if(condition == 1 ){
+  console.log("asd 1 asd");
+  var textareaDescripcion1 = document.querySelector('textarea[name="description1"]');
+  var textareaDescripcion2 = document.querySelector('textarea[name="description2"]');
 
-const textareaDescripcion_pago1 = document.querySelector('textarea[name="description-pago1"]');
-const textareaDescripcion_pago2 = document.querySelector('textarea[name="description-pago2"]');
+  var botonHamburguesas = document.getElementById("hamburguesas");
+  var botonClasica = document.getElementById("clasica");
+  var botonRealizarPago = document.getElementById("Realizar-pago");
 
-// Obtener el boton de "clasica" por su ID (NOMBRE DE VARIABLE DIFERENTE)
-const botonClasica = document.getElementById("clasica"); 
+  botonHamburguesas.addEventListener("click", () => {
+    //RELACIONAR A LOS BOTONES DEL HTML
+    var btnClasica = document.querySelector(".boton-clasica");      
+    var btnCheese = document.querySelector(".boton-cheese");
+    var btnRoyal = document.querySelector(".boton-royal");
+    //HACER APARECER LOS BOTONES
+    btnClasica.classList.toggle("hidden");
+    btnCheese.classList.toggle("hidden");
+    btnRoyal.classList.toggle("hidden")
+  });
 
-// Agregar un evento de clic al boton
-botonClasica.addEventListener("click", function() {
+  //CLASICA
+  // Agregar un evento de clic al boton
+  botonClasica.addEventListener("click", function() {
+    // Obtener el objeto de la hamburguesa "clasica" del array
+    var hamburguesaClasica = hamburguesas.find(hamburguesa => hamburguesa.name === 'clasica');
+    // Construir el texto a mostrar en el textarea
+    texto_pedido = texto_pedido + "Nombre: " + hamburguesaClasica.name + "\n" + 
+                                  "Precio: " + hamburguesaClasica.precio + "\n";
 
-  // Obtener el objeto de la hamburguesa "clasica" del array
-  const hamburguesaClasica = hamburguesas.find(hamburguesa => hamburguesa.name === 'clasica');
+    PrecioFinal = PrecioFinal + hamburguesaClasica.precio;
+    PrecioFinal_aux = PrecioFinal.toFixed(2);
+    PrecioNeto = PrecioFinal / 1.2;
+    IGV = PrecioFinal - PrecioNeto;
+    PrecioNeto_aux =  PrecioNeto.toFixed(2);
+    IGV_aux = IGV.toFixed(2);
 
-  // Construir el texto a mostrar en el textarea
-  texto_pedido = texto_pedido + "Nombre: " + hamburguesaClasica.name + "\n" + 
-                                "Precio: " + hamburguesaClasica.precio + "\n";
-  PrecioFinal = PrecioFinal + hamburguesaClasica.precio;
-  PrecioFinal_aux = PrecioFinal.toFixed(2);
-  PrecioNeto = PrecioFinal / 1.2;
-  IGV = PrecioFinal - PrecioNeto;
-  PrecioNeto_aux =  PrecioNeto.toFixed(2);
-  IGV_aux = IGV.toFixed(2);
+    texto_precio =  "Precio Neto: " + "\t" + PrecioNeto_aux + "\n" +
+                    "IGV: " + "\t\t" + IGV_aux + "\n" +
+                    "Precio Final: " + "\t" + PrecioFinal_aux + "\n";
 
-  texto_precio = "Precio Neto: " + "\t" + PrecioNeto_aux + "\n" +
-              "IGV: " + "\t\t" + IGV_aux + "\n" +
-              "Precio Final: " + "\t" + PrecioFinal_aux + "\n";
+    // Asignar el texto al valor del textarea
+    textareaDescripcion1.value = texto_pedido;
+    textareaDescripcion2.value = texto_precio;
+  });
+  botonRealizarPago.addEventListener("click", function() {
+    localStorage.setItem("pedido", texto_pedido);
+    localStorage.setItem("precio", texto_precio);
+    window.location.href = "interfazDePago.html";
+  });
+}
 
-  // Asignar el texto al valor del textarea
-  textareaDescripcion1.value = texto_pedido;
-  textareaDescripcion2.value = texto_precio;
-});
+if(condition == 2){
+  texto_pedido = localStorage.getItem("pedido");
+  texto_precio = localStorage.getItem("precio");
+  var textareaDescripcion_pago1 = document.querySelector('textarea[name="description-pago1"]');
+  var textareaDescripcion_pago2 = document.querySelector('textarea[name="description-pago2"]');
+  textareaDescripcion_pago1.value = texto_pedido;
+  textareaDescripcion_pago2.value = texto_precio;
+}
+
+
+
+
+
+
+

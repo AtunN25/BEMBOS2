@@ -4,22 +4,19 @@
 	<title>BEMBOS</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    
+    <script src="eventos.js" type="module"></script>
+    <script src="productos.js" type="module"></script>
+    <script src="boleta.js" type="module"></script>
 </head>
 <body>
   <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ-->
 
         <div class="right">
             
-            <textarea name="description-pago1" rows="15" class="form-control"  placeholder="task description" value="Texto predeterminado">
-
-
-            </textarea>
+            <textarea name="description-pago1" rows="15" class="form-control"  placeholder="task description" value="Texto predeterminado"></textarea>
             
-            <textarea name="description-pago2" rows="8" class="form-control"  placeholder="task description">
+            <textarea name="description-pago2" rows="8" class="form-control"  placeholder="task description"></textarea>
 
-
-            </textarea>
             <button id="Generar-boleta">Generar Boleta</button>
 
 
@@ -35,9 +32,9 @@
        <div class="general">
             <div class="opciones">
                 <center>
-                    <input type="text" placeholder="Nombre del Cliente"><br>
-                    <input type="text" placeholder="Pedido Adicional"><br>
-                    <input type="text" placeholder="Pedido Adicional"><br>
+                    <br><br><br><input type="text" placeholder="Nombre del Cliente"><br><br>
+                    <input type="text" placeholder="Pedido Adicional"><br><br>
+                    <input type="text" placeholder="Pedido Adicional"><br><br>
                 </center>
                 
             </div>
@@ -58,8 +55,6 @@
         </div>
         
   </div>
-    <script src="eventos.js"></script>
-    <script src="productos.js"></script>
-    <script src="boleta.js"></script>
+    
 </body>
 </html>
