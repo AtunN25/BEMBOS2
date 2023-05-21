@@ -1,10 +1,10 @@
 const hamburguesas = [
     {
-      name: 'clasica',
+      name: 'Clasica',
       precio: 11.90
     },
     {
-      name: 'cheese',
+      name: 'Cheese',
       precio: 0.20
     },
     {
@@ -12,7 +12,7 @@ const hamburguesas = [
       precio: 0.15
     },
     {
-      name: 'Queso Tocino',
+      name: 'Queso-tocino',
       precio: 11.90
     },
     {
@@ -20,7 +20,7 @@ const hamburguesas = [
       precio: 0.20
     },
     {
-      name: 'A lo pobre',
+      name: 'A-lo-pobre',
       precio: 0.15
     },
     {
@@ -59,7 +59,7 @@ const menus = [
     precio: 16.90
   },
   {
-    name: 'Burguer',
+    name: 'Burger',
     precio: 16.90
   },
   {
@@ -67,7 +67,7 @@ const menus = [
     precio: 16.90
   },
   {
-    name: 'A lo pobre',
+    name: 'A-lo-pobre',
     precio: 16.90
   }
 ];
@@ -82,22 +82,22 @@ const complementos = [
     precio: 16.90
   },
   {
-    name: 'Cheese Fingers',
+    name: 'Cheese-fingers',
     precio: 16.90
   },
   {
-    name: 'papas',
+    name: 'Papas',
     precio: 16.90
   }
 ]
 
 const bebidas = [
   {
-    name: 'Inca Kola',
+    name: 'Inca-kola',
     precio: 5.90
   },
   {
-    name: 'Coca Cola',
+    name: 'Coca-cola',
     precio: 5.90
   },
   {
