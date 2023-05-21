@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BEMBOS</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="eventos.js" type="module"></script>
+    <script src="productos.js" type="module"></script>
+    <script src="boleta.js" type="module"></script>
+</head>
+<body>
+  <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ-->
+
+        <div class="right">
+            
+            <textarea name="description-pago1" rows="15" class="form-control"  placeholder="task description" value="Texto predeterminado"></textarea>
+            
+            <textarea name="description-pago2" rows="8" class="form-control"  placeholder="task description"></textarea>
+
+            <button id="Generar-boleta">Generar Boleta</button>
+
+
+            <button onclick="redireccionar()">Regresar</button>
+            <script>
+                function redireccionar() {
+                  window.location.href = "interfazPrincipal.html";
+                }
+            </script>
+        </div>
+        
+       <!--division general -> MENU PARA LAS OPCIONES-->
+       <div class="general">
+            <div class="opciones">
+                <center>
+                    <br><br><br><input id="Precio-pago" type="text" placeholder="PRECIO FINAL" value=""><br><br>
+                    <input id="dinero-ingresado" type="text" placeholder="DINERO INGRESADO" value=""><br><br>
+                    <input id="dinero-devuelto" type="text" placeholder="VUELTO" value=""><br><br>
+                    <button id ="generar-vuelto">Generar Vuelto</button>
+                </center>
+                
+            </div>
+            <div class="mostraropciones">
+                
+            </div>
+        </div>
+        <!--division general-->
+        
+        <div class="left">
+            <button>Pago efectivo</button>
+            <button>Pago tarjeta</button>
+            <button>Yape</button>
+        </div>
+
+        <div class="down"><!--ABAJO-->
+            
+        </div>
+        
+  </div>
+    
+</body>
+</html>

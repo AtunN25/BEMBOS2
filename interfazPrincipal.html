@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BEMBOS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="productos.js" type="module"></script>          <!--TRAER VARIABLES DE JS-->
+    <script src="eventos.js" type="module"></script>
+</head>
+<body>
+  <div class="grid"><!--GRID = TABLITAS COMO UNA MATRIZ  (ESTA SEPARA LAS SECCIONES DE LA INTERFAZ COMO: PRINCIPAL - MOSTRAR OPCIONES - DOWN LEFT RIGHT)-->
+
+        <div class="right"><!--SECCION IZQUIERDA DE LA INTERFAZ-->
+            
+            <textarea name="description1" rows="15" class="form-control"  placeholder="task description"></textarea>
+            <button>Anular producto</button>
+            <textarea name="description2" rows="8" class="form-control"  placeholder="task description"></textarea>
+            <button id = "Realizar-pago">Realizar Pago</button>
+
+        </div>
+        
+       <!--division general -> SECCION CENTRAL UBICANDO : OPCIONES Y MOSTRAR OPCIONES (ENTENDER COMO CUADRICULAS)-->
+        <div class="general">
+            <div class="opciones">
+                <button id = "Clasica" class="boton-clasica hidden">Clasica</button>
+                <button id = "Cheese" class="boton-cheese hidden">Cheese</button>
+                <button id = "Royal" class="boton-royal hidden">Royal</button>
+                <button id = "Pechugon" class="boton-pechugon hidden">Pechugon</button>
+                <button id = "Broaster" class="boton-broaster hidden">Broaster</button>
+                <button id = "Burger" class="boton-burger hidden">Burger</button>
+                <button id = "Nuggets" class="boton-nuggets hidden">Nuggets</button>
+                <button id = "Salchipapa" class="boton-salchipapa hidden">Salchipapa</button>
+                <button id = "Cheese-fingers" class="boton-cheese-fingers hidden">Cheese fingers</button>
+                <button id = "Inca-kola" class="boton-inka-kola hidden">Inca Kola</button>
+                <button id = "Coca-cola" class="boton-coca-cola hidden">Coca Cola</button>
+                <button id = "Sprite" class="boton-sprite hidden">Sprite</button>
+            </div>
+            <div class="mostraropciones">
+                <button id="Hamburguesas">Hamburguesas</button>
+                <button id="Menus">Menus</button>
+                <button id="Complementos">Complementos</button>
+                <button id="Bebidas">Bebidas</button>
+            </div>
+        </div>
+        <!--division general-->
+
+        <div class="left"><!--SECCION DERECHA DE LA INTERFAZ-->
+            <button>cancelar pedido</button>
+            <button>RUC</button>
+            <button>DNI</button>
+        </div>
+
+        <div class="down"><!--ABAJO-->
+            <button id="comer">Comer Aca</button>
+            <button>Para Llevar</button>
+            <button>Generar Pedido</button>
+            <input type="text" placeholder="Nombre del Cliente">
+            <input type="text" placeholder="Pedido Adicional">
+        </div>
+        
+  </div>
+</body>
+</html>
