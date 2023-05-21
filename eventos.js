@@ -10,6 +10,10 @@ var texto_pedido = "";
 var texto_precio = "";
 var condition = 1;
 
+var clasica_condition = 1;
+var clasica_cant = 1;
+
+
 if(document.querySelector('textarea[name="description-pago1"]')){
   condition = 2;
 }
@@ -39,10 +43,19 @@ if(condition == 1 ){
   botonClasica.addEventListener("click", function() {
     // Obtener el objeto de la hamburguesa "clasica" del array
     var hamburguesaClasica = hamburguesas.find(hamburguesa => hamburguesa.name === 'clasica');
+    if(clasica_condition == 1){
+      texto_pedido = texto_pedido + "Nombre: " + "\t" + hamburguesaClasica.name + "\n" +   
+                                    "Precio c/u:" + "\t" + hamburguesaClasica.precio + "\n" +
+                                    "Cantidad:" + "\t" + "X" + clasica_cant + "\n";
+      clasica_condition = 2;
+    }else if(clasica_condition == 2){
+      clasica_cant = clasica_cant + 1;
+      texto_pedido = "Nombre: "+ "\t" + hamburguesaClasica.name + "\n" +   
+                      "Precio c/u:" + "\t" + hamburguesaClasica.precio + "\n" +
+                      "Cantidad:" + "\t" + "X" + clasica_cant + "\n";
+      
+    }
     // Construir el texto a mostrar en el textarea
-    texto_pedido = texto_pedido + "Nombre: " + hamburguesaClasica.name + "\n" + 
-                                  "Precio: " + hamburguesaClasica.precio + "\n";
-
     PrecioFinal = PrecioFinal + hamburguesaClasica.precio;
     PrecioFinal_aux = PrecioFinal.toFixed(2);
     PrecioNeto = PrecioFinal / 1.2;
@@ -61,6 +74,7 @@ if(condition == 1 ){
   botonRealizarPago.addEventListener("click", function() {
     localStorage.setItem("pedido", texto_pedido);
     localStorage.setItem("precio", texto_precio);
+    localStorage.setItem("precio_final", PrecioFinal_aux);
     window.location.href = "interfazDePago.html";
   });
 }
@@ -68,10 +82,25 @@ if(condition == 1 ){
 if(condition == 2){
   texto_pedido = localStorage.getItem("pedido");
   texto_precio = localStorage.getItem("precio");
+  PrecioFinal = localStorage.getItem("precio_final");
+
+  var inputPrecioFinal = document.getElementById("Precio-pago");
+  var inputDineroIngresado = document.getElementById("dinero-ingresado");
+  var inputDineroDevuelto = document.getElementById("dinero-devuelto");
+
+  var botonGenerarVuelto = document.getElementById("generar-vuelto");
+
   var textareaDescripcion_pago1 = document.querySelector('textarea[name="description-pago1"]');
   var textareaDescripcion_pago2 = document.querySelector('textarea[name="description-pago2"]');
   textareaDescripcion_pago1.value = texto_pedido;
   textareaDescripcion_pago2.value = texto_precio;
+  inputPrecioFinal.value = PrecioFinal;
+
+  botonGenerarVuelto.addEventListener("click", () => {
+    var Vuelto_aux = inputDineroIngresado.value - inputPrecioFinal.value;
+    inputDineroDevuelto.value = Vuelto_aux.toFixed(2);
+  });
+
 }
 
 

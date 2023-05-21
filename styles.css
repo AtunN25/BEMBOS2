@@ -28,6 +28,7 @@
     grid-column: 1/4;
     grid-row: 0px;
     background-color: #f1c40f;
+    text-align: center;
 }
 
 .left{
@@ -54,7 +55,10 @@ button {
 }
 
 /* Centramos los botones */
-.right, .left, .down, .mostraropciones {
+.right, .left, .mostraropciones {
+  display: grid;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
   text-align: center;
 }
 
