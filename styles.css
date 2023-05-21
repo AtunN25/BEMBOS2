@@ -1,47 +1,46 @@
-.grid{
-    display: grid;
-    /*numero de columnas*/
-    grid-template-columns: 15% 70% 15%;
-    gap:1em;
-    grid-template-rows: 650px 90px ;
-    align-items: stretch;
-}
-/***TODO ESTA DENTRO DEL MENU PRINCIPAL***/
-.general {
-    display: grid;
-    grid-template-rows: 300px 300px;
-    gap:1em;
-    grid-template-columns: 1fr;
+/* Colores */
+:root {
+  --color-primario: #183152; /* Azul */
+  --color-secundario: #f1c40f; /* Amarillo */
+  --color-terciario: #cb1b45; /* Rojo */
 }
 
-.opciones {
-    background-color: blue;
-}
-  
-.mostraropciones {
-    background-color: red;
-}
-/******************/
-
-/******************/
-.down{
-    grid-column: 1/4;
-    grid-row: 0px;
-    background-color: #f1c40f;
-    text-align: center;
+/* Estilos generales */
+body {
+  background-image: url('negro.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.left{
-  background-color: aqua;
+
+.grid {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  gap: 1em;
+  grid-template-rows: 650px 90px;
+  align-items: stretch;
 }
 
-.right{
-   background-color: pink;
+/* Estilos de la sección derecha */
+.right {
+  background-color: var(--color-terciario);
+  padding: 1em;
+  color: white;
+  border-radius: 10px;
 }
-/*******************/
-/* Agregamos un estilo de comida rápida a los botones */
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  font-size: 16px;
+  box-shadow: none;
+}
+
 button {
-  background-color: #f44336;
+  background-color: var(--color-primario);
   border: none;
   color: white;
   padding: 15px 32px;
@@ -51,34 +50,126 @@ button {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 25px;
+  border: 2px solid var(--color-primario);
   cursor: pointer;
 }
 
-/* Centramos los botones */
-.right, .left, .mostraropciones {
-  display: grid;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  text-align: center;
+button:hover {
+  background-color: #122240; /* Azul más oscuro al pasar el mouse */
 }
 
-/* Estilo para los inputs */
+/* Estilos de la sección central */
+.general {
+  display: grid;
+  grid-template-rows: 300px 300px;
+  gap: 1em;
+  grid-template-columns: 1fr;
+}
+
+.opciones {
+  background-color: var(--color-secundario);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.mostraropciones {
+  background-color: var(--color-secundario);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+/* Estilos de la sección izquierda */
+.left {
+  background-color: var(--color-terciario);
+  padding: 1em;
+  border-radius: 10px;
+}
+
+/* Estilos del footer */
+.down {
+  grid-column: 1/4;
+  grid-row: 0px;
+  background-color: var(--color-primario);
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Estilos de los inputs */
 input[type="text"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-    font-size: 16px;
-    box-shadow: none;
-  }
-  
-  /* Estilo para cuando el input está enfocado */
-  input[type="text"]:focus {
-    outline: none;
-    box-shadow: 0px 0px 5px #f44336;
-  }
-  /*******************/
-  .hidden {
-    display: none;
-  }
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  font-size: 16px;
+  box-shadow: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px var(--color-primario);
+}
+
+/* Estilos adicionales */
+.hidden {
+  display: none;
+}
+
+/* Estilos de los segmentos */
+.right {
+  /* Resto de estilos */
+  border: 2px solid var(--color-terciario);
+}
+
+.general {
+  /* Resto de estilos */
+  border: 2px solid var(--color-primario);
+}
+
+.left {
+  /* Resto de estilos */
+  border: 2px solid var(--color-secundario);
+}
+
+.down {
+  /* Resto de estilos */
+  border: 2px solid var(--color-secundario);
+}
+
+
+/* Estilos del borde al pasar el mouse */
+.right:hover {
+  border: 2px solid var(--color-secundario);
+}
+
+.general:hover {
+  border: 2px solid var(--color-terciario);
+}
+
+.left:hover {
+  border: 2px solid var(--color-primario);
+}
+
+.down:hover {
+  border: 2px solid var(--color-terciario);
+}
+
+
+/* Estilos de los botones al pasar el mouse */
+button:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-primario);
+  border-color: var(--color-secundario);
+}
+
+.logo {
+  width: 150px; /* Ajusta el ancho del logo según tus necesidades */
+  height: auto; /* Ajusta la altura automáticamente según el ancho */
+  margin-bottom: 20px; /* Ajusta el margen inferior según tus necesidades */
+}
+
   
