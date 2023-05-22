@@ -17,7 +17,7 @@
         <div class="right"><!--SECCION IZQUIERDA DE LA INTERFAZ-->
             
             <textarea name="description1" rows="15" class="form-control"  placeholder="task description"></textarea>
-            <button>Anular producto</button>
+            <button id="Anular-Producto">Anular producto</button>
             <textarea name="description2" rows="8" class="form-control"  placeholder="task description"></textarea>
             <button id = "Realizar-pago">Realizar Pago</button>
 
@@ -38,6 +38,14 @@
                 <button id = "Inca-kola" class="boton-inka-kola hidden">Inca Kola</button>
                 <button id = "Coca-cola" class="boton-coca-cola hidden">Coca Cola</button>
                 <button id = "Sprite" class="boton-sprite hidden">Sprite</button>
+
+                <input id="RUCtxt" class="txt-RUC hidden" type="text" placeholder="RUC" value="">
+                <button id ="anadir-ruc" class="boton-anadir-RUC hidden">Añadir RUC</button>
+
+                <input id="DNItxt" class="txt-DNI hidden" type="text" placeholder="DNI" value="">
+                <button id ="anadir-dni" class="boton-anadir-DNI hidden">Añadir DNI</button>
+
+                <input id="NULLtxt" class="txt-NULL hidden" type="text" placeholder="NO HAY PEDIDO" value="">
             </div>
             <div class="mostraropciones">
                 <img src="LogoBembos.png" alt="Logo de la tienda" class="logo">
@@ -50,9 +58,9 @@
         <!--division general-->
 
         <div class="left"><!--SECCION DERECHA DE LA INTERFAZ-->
-            <button>cancelar pedido</button>
-            <button>RUC</button>
-            <button>DNI</button>
+            <button id="Cancelar-Pedido">cancelar pedido</button>
+            <button id="RUC">RUC</button>
+            <button id="DNI">DNI</button>
         </div>
 
         <div class="down"><!--ABAJO-->
