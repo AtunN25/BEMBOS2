@@ -11,7 +11,7 @@ const hamburguesas = [
   },
   {
     name: 'Royal',
-    cantidad : 1,
+    cantidad : 0,
     precio: 0.15
   },
   {

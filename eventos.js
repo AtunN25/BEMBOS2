@@ -9,6 +9,8 @@ var PrecioNeto_aux;
 var IGV = 0.0;
 var IGV_aux;
 
+var condicionHamburguesa = 0;
+
 var texto_hamburguesa = "";
 var texto_pedido = "";
 var texto_precio = "";
@@ -182,14 +184,9 @@ if(condition == 1 ){
     }
   });
 
-
-
-
   //ENLISTA LOS PRODUCTOS
 
-
-
-  /*function agregarHamburguesa(nombreHamburguesa) {
+  function agregarHamburguesa(nombreHamburguesa,con) {
     // Obtener el objeto de la hamburguesa del array
     var hamburguesa = hamburguesas.find(hamburguesa => hamburguesa.name === nombreHamburguesa);
   
@@ -207,10 +204,20 @@ if(condition == 1 ){
       });
     }
   
-    // Construir el texto a mostrar en el textarea
-    texto_hamburguesa = "Nombre: " + "\t" + hamburguesa.name + "\n" +
+    if(con == 1){
+      texto_clasica = "Nombre: " + "\t" + hamburguesa.name + "\n" +
       "Precio c/u:" + "\t" + hamburguesa.precio + "\n" +
       "Cantidad:" + "\t" + "X" + detalle.cantidad + "\n";
+    }else if (con == 2){
+      texto_cheese = "Nombre: " + "\t" + hamburguesa.name + "\n" +
+      "Precio c/u:" + "\t" + hamburguesa.precio + "\n" +
+      "Cantidad:" + "\t" + "X" + detalle.cantidad + "\n";
+    }else if (con == 3){
+      texto_royal = "Nombre: " + "\t" + hamburguesa.name + "\n" +
+      "Precio c/u:" + "\t" + hamburguesa.precio + "\n" +
+      "Cantidad:" + "\t" + "X" + detalle.cantidad + "\n";
+    }
+    texto_hamburguesa = texto_clasica + texto_cheese + texto_royal;
   
     // Actualizar los totales
     PrecioFinal += hamburguesa.precio;
@@ -234,162 +241,55 @@ if(condition == 1 ){
   
   // Agregar eventos de clic a los botones de hamburguesas
   botonClasica.addEventListener("click", function() {
-    agregarHamburguesa("Clasica");
+    condicionHamburguesa = 1;
+    agregarHamburguesa("Clasica",condicionHamburguesa);
+    
   });
   
   botonCheese.addEventListener("click", function() {
-    agregarHamburguesa("Cheese");
+    condicionHamburguesa = 2;
+    agregarHamburguesa("Cheese",condicionHamburguesa);
   });
   
   botonRoyal.addEventListener("click", function() {
-    agregarHamburguesa("Royal");
-  });
-  */
-
-
-
-
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //CLASICA
-  // Agregar un evento de clic al boton
-  botonClasica.addEventListener("click", function() {
-     // Obtener el objeto de la hamburguesa "clasica" del array
-   var hamburguesaClasica = hamburguesas.find(hamburguesa => hamburguesa.name === 'Clasica');
-
-   // Verificar si el objeto ya existe en detalleDeVenta
-   var detalleClasica = detalleDeVenta.find(detalle => detalle.name === hamburguesaClasica.name);
-   if (detalleClasica) {
-     // Si ya existe, incrementar la cantidad
-     detalleClasica.cantidad += 1;
-   } else {
-     // Si no existe, agregar un nuevo objeto al arreglo
-     detalleDeVenta.push({
-       name: hamburguesaClasica.name,
-       cantidad: 1,
-       precio: hamburguesaClasica.precio
-     });
-   }
-
-   // Obtener el objeto de la hamburguesa "clasica" del array
-   var hamburguesaClasica = hamburguesas.find(hamburguesa => hamburguesa.name === 'Clasica');
-
-   texto_clasica = "Nombre: " + "\t" + hamburguesaClasica.name + "\n" +   
-                   "Precio c/u:" + "\t" + hamburguesaClasica.precio + "\n" +
-                   "Cantidad:" + "\t" + "X" + clasica_cant + "\n";
-
-   clasica_cant = clasica_cant + 1;
-   // Construir el texto a mostrar en el textarea
-   PrecioFinal = PrecioFinal + hamburguesaClasica.precio;
-   PrecioFinal_aux = PrecioFinal.toFixed(2);
-   PrecioNeto = PrecioFinal / 1.2;
-   IGV = PrecioFinal - PrecioNeto;
-   PrecioNeto_aux =  PrecioNeto.toFixed(2);
-   IGV_aux = IGV.toFixed(2);
-
-   texto_precio =  "Precio Neto: " + "\t" + PrecioNeto_aux + "\n" +
-                   "IGV: " + "\t\t" + IGV_aux + "\n" +
-                   "Precio Final: " + "\t" + PrecioFinal_aux + "\n";
-
-   texto_pedido = texto_clasica + texto_cheese + texto_royal + texto_DNI + texto_RUC;
-   // Asignar el texto al valor del textarea
-   textareaDescripcion1.value = texto_pedido;
-   textareaDescripcion2.value = texto_precio + texto_DNI + texto_RUC;
+    condicionHamburguesa = 3;
+    agregarHamburguesa("Royal",condicionHamburguesa);
   });
 
-
-
-  //CHEESE
-  // Agregar un evento de clic al boton
-  botonCheese.addEventListener("click", function() {
-      // Obtener el objeto de la hamburguesa "cheese" del array
-    var hamburguesaCheese = hamburguesas.find(hamburguesa => hamburguesa.name === 'Cheese');
-
-    // Verificar si el objeto ya existe en detalleDeVenta
-    var detalleCheese = detalleDeVenta.find(detalle => detalle.name === hamburguesaCheese.name);
-    if (detalleCheese) {
-      // Si ya existe, incrementar la cantidad
-      detalleCheese.cantidad += 1;
-    } else {
-      // Si no existe, agregar un nuevo objeto al arreglo
-      detalleDeVenta.push({
-        name: hamburguesaCheese.name,
-        cantidad: 1,
-        precio: hamburguesaCheese.precio
-      });
-    }
+  botonAnularProducto.addEventListener("click", function(){
+    //window.location.href = "index.html";
+  });
   
-    // Obtener el objeto de la hamburguesa "clasica" del array
-    var hamburguesaCheese = hamburguesas.find(hamburguesa => hamburguesa.name === 'Cheese');
-
-    texto_cheese = "Nombre: " + "\t" + hamburguesaCheese.name + "\n" +   
-                    "Precio c/u:" + "\t" + hamburguesaCheese.precio + "\n" +
-                    "Cantidad:" + "\t" + "X" + cheese_cant + "\n";
-
-    cheese_cant = cheese_cant + 1;
-    // Construir el texto a mostrar en el textarea
-    PrecioFinal = PrecioFinal + hamburguesaCheese.precio;
-    PrecioFinal_aux = PrecioFinal.toFixed(2);
-    PrecioNeto = PrecioFinal / 1.2;
-    IGV = PrecioFinal - PrecioNeto;
-    PrecioNeto_aux =  PrecioNeto.toFixed(2);
-    IGV_aux = IGV.toFixed(2);
-
-    texto_precio =  "Precio Neto: " + "\t" + PrecioNeto_aux + "\n" +
-                    "IGV: " + "\t\t" + IGV_aux + "\n" +
-                    "Precio Final: " + "\t" + PrecioFinal_aux + "\n";
-    texto_pedido = texto_clasica + texto_cheese + texto_royal + texto_DNI + texto_RUC;
-    // Asignar el texto al valor del textarea
-    textareaDescripcion1.value = texto_pedido;
-    textareaDescripcion2.value = texto_precio + texto_DNI + texto_RUC;
+  botonCancelarPedido.addEventListener("click", function(){
+    texto_clasica = "";
+    clasica_cant = 1;
+  
+    texto_cheese = "";
+    cheese_cant = 1;
+  
+    texto_royal = "";
+    royal_cant = 1;
+  
+    PrecioFinal =  0.0;
+    PrecioFinal_aux;
+    PrecioNeto =  0.0;
+    PrecioNeto_aux;
+    IGV = 0.0;
+    IGV_aux;
+    texto_pedido = "";
+    texto_precio = "";
+  
+    texto_RUC = "";
+    texto_DNI = "";
+  
+    texto_cancelar = "Pedido Cancelado";
+  
+    textareaDescripcion1.value = texto_cancelar;
+    textareaDescripcion2.value = texto_cancelar;
   });
 
-  //ROYAL
-  // Agregar un evento de clic al boton
-  botonRoyal.addEventListener("click", function() {
-      // Obtener el objeto de la hamburguesa "royal" del array
-    var hamburguesaRoyal = hamburguesas.find(hamburguesa => hamburguesa.name === 'Royal');
-
-    // Verificar si el objeto ya existe en detalleDeVenta
-    var detalleRoyal = detalleDeVenta.find(detalle => detalle.name === hamburguesaRoyal.name);
-    if (detalleRoyal) {
-      // Si ya existe, incrementar la cantidad
-      detalleRoyal.cantidad += 1;
-    } else {
-      // Si no existe, agregar un nuevo objeto al arreglo
-      detalleDeVenta.push({
-        name: hamburguesaRoyal.name,
-        cantidad: 1,
-        precio: hamburguesaRoyal.precio
-      });
-    }
-    // Obtener el objeto de la hamburguesa "clasica" del array
-    var hamburguesaRoyal = hamburguesas.find(hamburguesa => hamburguesa.name === 'Royal');
-
-    texto_royal = "Nombre: " + "\t" + hamburguesaRoyal.name + "\n" +   
-                  "Precio c/u:" + "\t" + hamburguesaRoyal.precio + "\n" +
-                  "Cantidad:" + "\t" + "X" + royal_cant + "\n";
-
-    royal_cant = royal_cant + 1;
-    // Construir el texto a mostrar en el textarea
-    PrecioFinal = PrecioFinal + hamburguesaRoyal.precio;
-    PrecioFinal_aux = PrecioFinal.toFixed(2);
-    PrecioNeto = PrecioFinal / 1.2;
-    IGV = PrecioFinal - PrecioNeto;
-    PrecioNeto_aux =  PrecioNeto.toFixed(2);
-    IGV_aux = IGV.toFixed(2);
-
-    texto_precio =  "Precio Neto: " + "\t" + PrecioNeto_aux + "\n" +
-                    "IGV: " + "\t\t" + IGV_aux + "\n" +
-                    "Precio Final: " + "\t" + PrecioFinal_aux + "\n";
-    texto_pedido = texto_clasica + texto_cheese + texto_royal + texto_DNI + texto_RUC;
-    // Asignar el texto al valor del textarea
-    textareaDescripcion1.value = texto_pedido;
-    textareaDescripcion2.value = texto_precio + texto_DNI + texto_RUC;
-
-  });
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+  
+  //LA lista VA A LA OTRA INTERFAZ
   botonRealizarPago.addEventListener("click", function() {
     localStorage.setItem("pedido", texto_pedido);
     localStorage.setItem("precio", texto_precio);
@@ -401,6 +301,7 @@ if(condition == 1 ){
 
 }
 
+//LA OTRA INTERFAZ
 if(condition == 2){
   texto_pedido = localStorage.getItem("pedido");
   texto_precio = localStorage.getItem("precio");
@@ -500,38 +401,6 @@ if(condition == 2){
   });
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-botonAnularProducto.addEventListener("click", function(){
-  
-});
-
-botonCancelarPedido.addEventListener("click", function(){
-  texto_clasica = "";
-  clasica_cant = 1;
-
-  texto_cheese = "";
-  cheese_cant = 1;
-
-  texto_royal = "";
-  royal_cant = 1;
-
-  PrecioFinal =  0.0;
-  PrecioFinal_aux;
-  PrecioNeto =  0.0;
-  PrecioNeto_aux;
-  IGV = 0.0;
-  IGV_aux;
-  texto_pedido = "";
-  texto_precio = "";
-
-  texto_RUC = "";
-  texto_DNI = "";
-
-  texto_cancelar = "Pedido Cancelado";
-
-  textareaDescripcion1.value = texto_cancelar;
-  textareaDescripcion2.value = texto_cancelar;
-});
 
 //HACER APARECER O DESAPARECER LOS BOTONES
 function aparecer_boton (desaparecer,aparecer){
