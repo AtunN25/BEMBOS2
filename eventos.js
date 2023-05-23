@@ -89,7 +89,7 @@ if(condition == 1 ){
 
   botonAnadirRUC.addEventListener("click", function(){
     var inputRUC = document.getElementById("RUCtxt");
-    texto_RUC = "RUC: " + inputRUC;
+    texto_RUC = "RUC: " + inputRUC.value;
    // Asignar el texto al valor del textarea
    textareaDescripcion1.value = texto_pedido + texto_RUC;
    textareaDescripcion2.value = texto_precio + texto_RUC;
@@ -97,7 +97,7 @@ if(condition == 1 ){
 
   botonAnadirDNI.addEventListener("click", function(){
     var inputDNI = document.getElementById("DNItxt");
-    texto_DNI = "DNI: " + inputDNI;
+    texto_DNI = "DNI: " + inputDNI.value;
 
    // Asignar el texto al valor del textarea
    textareaDescripcion1.value = texto_pedido + texto_DNI;
