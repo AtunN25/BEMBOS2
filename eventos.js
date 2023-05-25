@@ -189,19 +189,19 @@ if(condition == 1 ){
   function agregarHamburguesa(nombreHamburguesa,con) {
     // Obtener el objeto de la hamburguesa del array
     var hamburguesa = hamburguesas.find(hamburguesa => hamburguesa.name === nombreHamburguesa);
-  
-    // Verificar si el objeto ya existe en detalleDeVenta
     var detalle = detalleDeVenta.find(detalle => detalle.name === hamburguesa.name);
-    if (detalle) {
+    // Verificar si el objeto ya existe en detalleDeVenta
+    if (detalle){
       // Si ya existe, incrementar la cantidad
       detalle.cantidad += 1;
-    } else {
+    }else{
       // Si no existe, agregar un nuevo objeto al arreglo
       detalleDeVenta.push({
         name: hamburguesa.name,
         cantidad: 1,
         precio: hamburguesa.precio
       });
+      var detalle = detalleDeVenta.find(detalle => detalle.name === hamburguesa.name);
     }
   
     if(con == 1){
@@ -243,7 +243,6 @@ if(condition == 1 ){
   botonClasica.addEventListener("click", function() {
     condicionHamburguesa = 1;
     agregarHamburguesa("Clasica",condicionHamburguesa);
-    
   });
   
   botonCheese.addEventListener("click", function() {
